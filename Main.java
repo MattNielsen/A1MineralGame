@@ -81,38 +81,193 @@ public class Main {
 //    }
     }
 
-    public static void cardPool(int card, String category)
+    public static String cardPool(int card, String category)
     {
         category = category.toLowerCase();
-        int type;
+        int type = 0;
 
-        String[][] mineralCards = new String[54][5];
+        String[][] mineralCards = new String[54][6];
 
         mineralCards[0][0] = "Quartz";
+        mineralCards[0][1] = "7";
+        mineralCards[0][2] = "2.65";
+        mineralCards[0][3] = "none";
+        mineralCards[0][4] = "high";
+        mineralCards[0][5] = "moderate";
+
         mineralCards[1][0] = "Plagioclase";
+        mineralCards[1][1] = "6.5";
+        mineralCards[1][2] = "2.8";
+        mineralCards[1][3] = "perfect";
+        mineralCards[1][4] = "Plagioclase";
+        mineralCards[1][5] = "Plagioclase";
+
         mineralCards[2][0] = "Orthoclase";
+        mineralCards[2][1] = "Orthoclase";
+        mineralCards[2][2] = "Orthoclase";
+        mineralCards[2][3] = "Orthoclase";
+        mineralCards[2][4] = "Orthoclase";
+        mineralCards[2][5] = "Orthoclase";
+
         mineralCards[3][0] = "Biotite";
+        mineralCards[3][1] = "Biotite";
+        mineralCards[3][2] = "Biotite";
+        mineralCards[3][3] = "Biotite";
+        mineralCards[3][4] = "Biotite";
+        mineralCards[3][5] = "Biotite";
+
         mineralCards[4][0] = "Muscovite";
+        mineralCards[4][1] = "Muscovite";
+        mineralCards[4][2] = "Muscovite";
+        mineralCards[4][3] = "Muscovite";
+        mineralCards[4][4] = "Muscovite";
+        mineralCards[4][5] = "Muscovite";
+
         mineralCards[5][0] = "Hornblende";
+        mineralCards[5][0] = "Hornblende";
+        mineralCards[5][0] = "Hornblende";
+        mineralCards[5][0] = "Hornblende";
+        mineralCards[5][0] = "Hornblende";
+        mineralCards[5][0] = "Hornblende";
+
         mineralCards[6][0] = "Actinolite";
+        mineralCards[6][0] = "Actinolite";
+        mineralCards[6][0] = "Actinolite";
+        mineralCards[6][0] = "Actinolite";
+        mineralCards[6][0] = "Actinolite";
+        mineralCards[6][0] = "Actinolite";
+
         mineralCards[7][0] = "Glaucophane";
+        mineralCards[7][1] = "Glaucophane";
+        mineralCards[7][2] = "Glaucophane";
+        mineralCards[7][3] = "Glaucophane";
+        mineralCards[7][4] = "Glaucophane";
+        mineralCards[7][5] = "Glaucophane";
+
         mineralCards[8][0] = "Olivine";
+        mineralCards[8][0] = "Olivine";
+        mineralCards[8][0] = "Olivine";
+        mineralCards[8][0] = "Olivine";
+        mineralCards[8][0] = "Olivine";
+        mineralCards[8][0] = "Olivine";
+
         mineralCards[9][0] = "Garnet";
+        mineralCards[9][0] = "Garnet";
+        mineralCards[9][0] = "Garnet";
+        mineralCards[9][0] = "Garnet";
+        mineralCards[9][0] = "Garnet";
+        mineralCards[9][0] = "Garnet";
+
         mineralCards[10][0] = "Titanite";
+        mineralCards[10][0] = "Titanite";
+        mineralCards[10][0] = "Titanite";
+        mineralCards[10][0] = "Titanite";
+        mineralCards[10][0] = "Titanite";
+        mineralCards[10][0] = "Titanite";
+
         mineralCards[11][0] = "Zircon";
+        mineralCards[11][0] = "Zircon";
+        mineralCards[11][0] = "Zircon";
+        mineralCards[11][0] = "Zircon";
+        mineralCards[11][0] = "Zircon";
+        mineralCards[11][0] = "Zircon";
+
         mineralCards[12][0] = "Augite";
+        mineralCards[12][0] = "Augite";
+        mineralCards[12][0] = "Augite";
+        mineralCards[12][0] = "Augite";
+        mineralCards[12][0] = "Augite";
+        mineralCards[12][0] = "Augite";
+
         mineralCards[13][0] = "Orthopyroxene";
+        mineralCards[13][0] = "Orthopyroxene";
+        mineralCards[13][0] = "Orthopyroxene";
+        mineralCards[13][0] = "Orthopyroxene";
+        mineralCards[13][0] = "Orthopyroxene";
+        mineralCards[13][0] = "Orthopyroxene";
+
         mineralCards[14][0] = "Chlorite";
+        mineralCards[14][0] = "Chlorite";
+        mineralCards[14][0] = "Chlorite";
+        mineralCards[14][0] = "Chlorite";
+        mineralCards[14][0] = "Chlorite";
+        mineralCards[14][0] = "Chlorite";
+
         mineralCards[15][0] = "Antigorite";
+        mineralCards[15][0] = "Antigorite";
+        mineralCards[15][0] = "Antigorite";
+        mineralCards[15][0] = "Antigorite";
+        mineralCards[15][0] = "Antigorite";
+        mineralCards[15][0] = "Antigorite";
+
         mineralCards[16][0] = "Talc";
+        mineralCards[16][0] = "Talc";
+        mineralCards[16][0] = "Talc";
+        mineralCards[16][0] = "Talc";
+        mineralCards[16][0] = "Talc";
+        mineralCards[16][0] = "Talc";
+
         mineralCards[17][0] = "Kaolinite";
+        mineralCards[17][0] = "Kaolinite";
+        mineralCards[17][0] = "Kaolinite";
+        mineralCards[17][0] = "Kaolinite";
+        mineralCards[17][0] = "Kaolinite";
+        mineralCards[17][0] = "Kaolinite";
+
         mineralCards[18][0] = "Andalusite";
+        mineralCards[18][0] = "Andalusite";
+        mineralCards[18][0] = "Andalusite";
+        mineralCards[18][0] = "Andalusite";
+        mineralCards[18][0] = "Andalusite";
+        mineralCards[18][0] = "Andalusite";
+
         mineralCards[19][0] = "Kyanite";
+        mineralCards[19][0] = "Kyanite";
+        mineralCards[19][0] = "Kyanite";
+        mineralCards[19][0] = "Kyanite";
+        mineralCards[19][0] = "Kyanite";
+        mineralCards[19][0] = "Kyanite";
+
         mineralCards[20][0] = "Sillimanite";
+        mineralCards[20][0] = "Sillimanite";
+        mineralCards[20][0] = "Sillimanite";
+        mineralCards[20][0] = "Sillimanite";
+        mineralCards[20][0] = "Sillimanite";
+        mineralCards[20][0] = "Sillimanite";
+
         mineralCards[21][0] = "Staurolite";
+        mineralCards[21][0] = "Staurolite";
+        mineralCards[21][0] = "Staurolite";
+        mineralCards[21][0] = "Staurolite";
+        mineralCards[21][0] = "Staurolite";
+        mineralCards[21][0] = "Staurolite";
+
         mineralCards[22][0] = "Epidote";
+        mineralCards[22][0] = "Epidote";
+        mineralCards[22][0] = "Epidote";
+        mineralCards[22][0] = "Epidote";
+        mineralCards[22][0] = "Epidote";
+        mineralCards[22][0] = "Epidote";
+
         mineralCards[23][0] = "Tourmaline";
+        mineralCards[23][0] = "Tourmaline";
+        mineralCards[23][0] = "Tourmaline";
+        mineralCards[23][0] = "Tourmaline";
+        mineralCards[23][0] = "Tourmaline";
+        mineralCards[23][0] = "Tourmaline";
+
         mineralCards[24][0] = "Topaz";
+        mineralCards[24][0] = "Topaz";
+        mineralCards[24][0] = "Topaz";
+        mineralCards[24][0] = "Topaz";
+        mineralCards[24][0] = "Topaz";
+        mineralCards[24][0] = "Topaz";
+
+        mineralCards[25][0] = "Beryl";
+        mineralCards[25][0] = "Beryl";
+        mineralCards[25][0] = "Beryl";
+        mineralCards[25][0] = "Beryl";
+        mineralCards[25][0] = "Beryl";
         mineralCards[25][0] = "Beryl";
 //        ^Silicate
         mineralCards[26][0] = "Pyrite";
@@ -162,10 +317,14 @@ public class Main {
         }
         else if (category.contains("crystal abundance")){
             type = 4;
-        }        else if (category.contains("economic value")){
-            type = 4;
         }
-
+        else if (category.contains("economic value")){
+            type = 5;
+        }
+        else{
+            System.out.println("Invalid value detected.");
+        }
+        System.out.println(type + category);
         return mineralCards[card][type];
     }
 }
