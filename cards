@@ -1,0 +1,24 @@
+<cards>
+    <quartz>
+        <hardness>7</hardness>
+        <gravity>2.65</gravity>
+        <cleavage>poor</cleavage>
+        <abundance>high</abundance>
+        <value>moderate</value>
+    </quartz>
+    <oi>
+        <hardness>7</hardness>
+        <gravity>2.65</gravity>
+        <cleavage>poor</cleavage>
+        <abundance>high</abundance>
+        <value>moderate</value>
+    </oi>
+
+    <moonrocks>
+        <hardness>1</hardness>
+        <gravity>2.65</gravity>
+        <cleavage>poor</cleavage>
+        <abundance>high</abundance>
+        <value>moderate</value>
+    </moonrocks>
+</cards>
