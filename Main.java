@@ -27,11 +27,18 @@ public class Main {
     }
 
     public static void gamePlay(int players) {
+
         int TOTALPLAYERS = players;
         int playerDecksCount = players - 1;
         int playerTurn = 0;
+        int roundNumber = 0;
         String specificationCategory = "";
         Boolean winnerDeclared = false;
+        Boolean playerOnePass = false;
+        Boolean playerTwoPass = false;
+        Boolean playerThreePass = false;
+        Boolean playerFourPass = false;
+        Boolean playerFivePass = false;
 
         ArrayList<String> cardListLocal = new ArrayList<String>();
         cardListLocal.add("Quartz");
@@ -160,6 +167,8 @@ public class Main {
         }
         while (!winnerDeclared) {
 
+            System.out.println("Round number : " + roundNumber + 1 +" commencing.");
+
 //      **** Show the cards in each players hand.
             System.out.println("Player one : Which card would you like to play? " + playerOneCards + "\n"
                     + "You have " + playerOneCards.size() + "cards remaining...");
@@ -179,58 +188,73 @@ public class Main {
             String playSpecification = "";
             String playAttribute = "";
             while (!turnComplete) {
-                if (playerTurn == 0) {
-                    System.out.println("Currently Player" + playerTurn + " 's turn." +
-                            "\nSelect a mineral card from your hand." +"\nPlay a card by typing its name below.");
-                    while (!isCardInHand) {
+//                Player one Turn start.
+                if (playerTurn == 0 && !playerOnePass) {
+                    System.out.println("Currently Player " + (playerTurn + 1) + "'s turn." +
+                            "\nSelect a mineral card from your hand." +"\nPlay a card by typing its name below or pass"
+                            +
+                            " by typing in 'pass'.");
+                    while (!isCardInHand && !playerOnePass) {
                         playMineral = playCardInput.nextLine();
                         for (String cardsInPlay : playerOneCards) {
                             if (cardsInPlay.replace("[", "").replace("]", "").equalsIgnoreCase(playMineral)) {
                                 isCardInHand = true;
                             }
                         }
-                        if (!isCardInHand) {
+                        if (playMineral.equalsIgnoreCase("pass")){
+                            playerOnePass = true;
+                        }
+                        else if (!isCardInHand) {
                             System.out.println("Please select a mineral card from one of the following cards : "
                                     + playerOneCards);
                         }
 
-                    }
 
-                    System.out.println("Select the category you would like to play for card : " + playMineral);
-                    while (!isCardSpecificationAllowed){
-                        playSpecification = playCardInput.nextLine();
-                        if (specificationCategory.equalsIgnoreCase("")) {
-                            if (playSpecification.equalsIgnoreCase("hardness")
-                                    || playSpecification.equalsIgnoreCase("gravity")
-                                    || playSpecification.equalsIgnoreCase("cleavage")
-                                    || playSpecification.equalsIgnoreCase("abundance")
-                                    || playSpecification.equalsIgnoreCase("value")) {
-                                isCardSpecificationAllowed = true;
-                                System.out.println("Specification category is now set as : " + playSpecification);
-                                specificationCategory = playSpecification;
-                            }
-                            else {
-                                System.out.println("Incorrect specification. If no specification has been set, " +
-                                        "you must play hardness, gravity, value, abundance or cleavage.");
-                            }
-                        }
-                        else if (playSpecification.equalsIgnoreCase(specificationCategory)){
-                            isCardSpecificationAllowed = true;
-                        }
-                        else {
-                            System.out.println( "The current specification category is " + specificationCategory +
-                                    "Please play a specification from the current category only.");
-                        }
                     }
-                    System.out.println("Select the value of " + playSpecification);
-                    playAttribute = playCardInput.nextLine();
-                    cardSelector readXML = new cardSelector();
-                    System.out.println(readXML.xmlRead(playMineral, playSpecification, playAttribute));
-                    turnComplete = true;
-                    playerOneCards.remove("["+playMineral+"]");
+                    if (!playerOnePass) {
+                        System.out.println("Select the category you would like to play for card : " + playMineral);
+                        while (!isCardSpecificationAllowed) {
+                            playSpecification = playCardInput.nextLine();
+                            if (specificationCategory.equalsIgnoreCase("")) {
+                                if (playSpecification.equalsIgnoreCase("hardness")
+                                        || playSpecification.equalsIgnoreCase("gravity")
+                                        || playSpecification.equalsIgnoreCase("cleavage")
+                                        || playSpecification.equalsIgnoreCase("abundance")
+                                        || playSpecification.equalsIgnoreCase("value")) {
+                                    isCardSpecificationAllowed = true;
+                                    System.out.println("Specification category is now set as : " + playSpecification);
+                                    specificationCategory = playSpecification;
+                                } else {
+                                    System.out.println("Incorrect specification. If no specification has been set, " +
+                                            "you must play hardness, gravity, value, abundance or cleavage.");
+                                }
+                            } else if (playSpecification.equalsIgnoreCase(specificationCategory)) {
+                                isCardSpecificationAllowed = true;
+                            } else {
+                                System.out.println("The current specification category is " + specificationCategory +
+                                        "Please play a specification from the current category only.");
+                            }
+                        }
+                        System.out.println("Select the value of " + playSpecification);
+                        playAttribute = playCardInput.nextLine();
+                        cardSelector readXML = new cardSelector();
+                        System.out.println(readXML.xmlRead(playMineral, playSpecification, playAttribute));
+                        turnComplete = true;
+                        playerOneCards.remove("[" + playMineral + "]");
+                    }
                     if (playerOneCards.size() <= 0){
                         winnerDeclared = true;
-                        System.out.println("Congratulations to Player " + playerTurn + " you are the winner!!!.");
+                        System.out.println("Congratulations to Player " + (playerTurn + 1) + " you are the winner!!!.");
+                    }
+                    else if (playerFivePass && playerFourPass && playerThreePass && playerTwoPass){
+                        playerTurn = 0;
+                        specificationCategory = "";
+                        playerOnePass = false;
+                        playerTwoPass = false;
+                        playerThreePass = false;
+                        playerFourPass = false;
+                        playerFivePass = false;
+
                     }
                     else {
                         playerTurn++;
@@ -238,116 +262,149 @@ public class Main {
 
 
                 }
+                //                Player two Turn start.
+
                 else if (playerTurn == 1) {
-                    System.out.println("Currently Player" + playerTurn + " 's turn." +
-                            "\nSelect a mineral card from your hand." +"\nPlay a card by typing its name below.");
-                    while (!isCardInHand) {
+                    System.out.println("Currently Player " + (playerTurn + 1) + "'s turn." +
+                            "\nSelect a mineral card from your hand." +"\nPlay a card by typing its name below or pass"
+                            +
+                            " by typing in 'pass'.");
+                    while (!isCardInHand && !playerTwoPass) {
                         playMineral = playCardInput.nextLine();
                         for (String cardsInPlay : playerTwoCards) {
                             if (cardsInPlay.replace("[", "").replace("]", "").equalsIgnoreCase(playMineral)) {
                                 isCardInHand = true;
                             }
                         }
-                        if (!isCardInHand) {
+                        if (playMineral.equalsIgnoreCase("pass")){
+                            playerTwoPass = true;
+                        }
+                        else if (!isCardInHand) {
                             System.out.println("Please select a mineral card from one of the following cards : "
                                     + playerTwoCards);
                         }
 
-                    }
 
-                    System.out.println("Select the category you would like to play for card : " + playMineral);
-                    while (!isCardSpecificationAllowed){
-                        playSpecification = playCardInput.nextLine();
-                        if (specificationCategory.equalsIgnoreCase("")) {
-                            if (playSpecification.equalsIgnoreCase("hardness")
-                                    || playSpecification.equalsIgnoreCase("gravity")
-                                    || playSpecification.equalsIgnoreCase("cleavage")
-                                    || playSpecification.equalsIgnoreCase("abundance")
-                                    || playSpecification.equalsIgnoreCase("value")) {
-                                isCardSpecificationAllowed = true;
-                                System.out.println("Specification category is now set as : " + playSpecification);
-                                specificationCategory = playSpecification;
-                            }
-                            else {
-                                System.out.println("Incorrect specification. If no specification has been set, " +
-                                        "you must play hardness, gravity, value, abundance or cleavage.");
-                            }
-                        }
-                        else if (playSpecification.equalsIgnoreCase(specificationCategory)){
-                            isCardSpecificationAllowed = true;
-                        }
-                        else {
-                            System.out.println( "The current specification category is " + specificationCategory +
-                                    "Please play a specification from the current category only.");
-                        }
                     }
-                    System.out.println("Select the value of " + playSpecification);
-                    playAttribute = playCardInput.nextLine();
-                    cardSelector readXML = new cardSelector();
-                    System.out.println(readXML.xmlRead(playMineral, playSpecification, playAttribute));
-                    turnComplete = true;
-                    playerTwoCards.remove("["+playMineral+"]");
+                    if (!playerTwoPass) {
+                        System.out.println("Select the category you would like to play for card : " + playMineral);
+                        while (!isCardSpecificationAllowed) {
+                            playSpecification = playCardInput.nextLine();
+                            if (specificationCategory.equalsIgnoreCase("")) {
+                                if (playSpecification.equalsIgnoreCase("hardness")
+                                        || playSpecification.equalsIgnoreCase("gravity")
+                                        || playSpecification.equalsIgnoreCase("cleavage")
+                                        || playSpecification.equalsIgnoreCase("abundance")
+                                        || playSpecification.equalsIgnoreCase("value")) {
+                                    isCardSpecificationAllowed = true;
+                                    System.out.println("Specification category is now set as : " + playSpecification);
+                                    specificationCategory = playSpecification;
+                                } else {
+                                    System.out.println("Incorrect specification. If no specification has been set, " +
+                                            "you must play hardness, gravity, value, abundance or cleavage.");
+                                }
+                            } else if (playSpecification.equalsIgnoreCase(specificationCategory)) {
+                                isCardSpecificationAllowed = true;
+                            } else {
+                                System.out.println("The current specification category is " + specificationCategory +
+                                        "Please play a specification from the current category only.");
+                            }
+                        }
+                        System.out.println("Select the value of " + playSpecification);
+                        playAttribute = playCardInput.nextLine();
+                        cardSelector readXML = new cardSelector();
+                        System.out.println(readXML.xmlRead(playMineral, playSpecification, playAttribute));
+                        turnComplete = true;
+                        playerTwoCards.remove("[" + playMineral + "]");
+                    }
                     if (playerTwoCards.size() <= 0){
                         winnerDeclared = true;
-                        System.out.println("Congratulations to Player " + playerTurn + " you are the winner!!!.");
+                        System.out.println("Congratulations to Player " + (playerTurn + 1)  + " you are the winner!!!.");
                     }
+                    else if (playerFivePass && playerFourPass && playerThreePass && playerOnePass){
+                        playerTurn = 1;
+                        specificationCategory = "";
+                        playerOnePass = false;
+                        playerTwoPass = false;
+                        playerThreePass = false;
+                        playerFourPass = false;
+                        playerFivePass = false;
+
+                    }
+
                     else {
                         playerTurn++;
                     }
                 }
+                //                Player three Turn start.
+
                 else if (playerTurn == 2) {
-                    System.out.println("Currently Player" + playerTurn + " 's turn." +
-                            "\nSelect a mineral card from your hand." +"\nPlay a card by typing its name below.");
-                    while (!isCardInHand) {
+                    System.out.println("Currently Player " + (playerTurn + 1) + "'s turn." +
+                            "\nSelect a mineral card from your hand." +"\nPlay a card by typing its name below or pass"
+                            +
+                            " by typing in 'pass'.");
+                    while (!isCardInHand && !playerThreePass) {
                         playMineral = playCardInput.nextLine();
                         for (String cardsInPlay : playerThreeCards) {
                             if (cardsInPlay.replace("[", "").replace("]", "").equalsIgnoreCase(playMineral)) {
                                 isCardInHand = true;
                             }
                         }
-                        if (!isCardInHand) {
+
+                        if (playMineral.equalsIgnoreCase("pass")){
+                            playerThreePass = true;
+                        }
+                       else if (!isCardInHand) {
                             System.out.println("Please select a mineral card from one of the following cards : "
                                     + playerThreeCards);
+
                         }
-
                     }
-
-                    System.out.println("Select the category you would like to play for card : " + playMineral);
-                    while (!isCardSpecificationAllowed){
-                        playSpecification = playCardInput.nextLine();
-                        if (specificationCategory.equalsIgnoreCase("")) {
-                            if (playSpecification.equalsIgnoreCase("hardness")
-                                    || playSpecification.equalsIgnoreCase("gravity")
-                                    || playSpecification.equalsIgnoreCase("cleavage")
-                                    || playSpecification.equalsIgnoreCase("abundance")
-                                    || playSpecification.equalsIgnoreCase("value")) {
+                    if (!playerThreePass) {
+                        System.out.println("Select the category you would like to play for card : " + playMineral);
+                        while (!isCardSpecificationAllowed) {
+                            playSpecification = playCardInput.nextLine();
+                            if (specificationCategory.equalsIgnoreCase("")) {
+                                if (playSpecification.equalsIgnoreCase("hardness")
+                                        || playSpecification.equalsIgnoreCase("gravity")
+                                        || playSpecification.equalsIgnoreCase("cleavage")
+                                        || playSpecification.equalsIgnoreCase("abundance")
+                                        || playSpecification.equalsIgnoreCase("value")) {
+                                    isCardSpecificationAllowed = true;
+                                    System.out.println("Specification category is now set as : " + playSpecification);
+                                    specificationCategory = playSpecification;
+                                } else {
+                                    System.out.println("Incorrect specification. If no specification has been set, " +
+                                            "you must play hardness, gravity, value, abundance or cleavage.");
+                                }
+                            } else if (playSpecification.equalsIgnoreCase(specificationCategory)) {
                                 isCardSpecificationAllowed = true;
-                                System.out.println("Specification category is now set as : " + playSpecification);
-                                specificationCategory = playSpecification;
-                            }
-                            else {
-                                System.out.println("Incorrect specification. If no specification has been set, " +
-                                        "you must play hardness, gravity, value, abundance or cleavage.");
+                            } else {
+                                System.out.println("The current specification category is " + specificationCategory +
+                                        "Please play a specification from the current category only.");
                             }
                         }
-                        else if (playSpecification.equalsIgnoreCase(specificationCategory)){
-                            isCardSpecificationAllowed = true;
-                        }
-                        else {
-                            System.out.println( "The current specification category is " + specificationCategory +
-                                    "Please play a specification from the current category only.");
-                        }
+                        System.out.println("Select the value of " + playSpecification);
+                        playAttribute = playCardInput.nextLine();
+                        cardSelector readXML = new cardSelector();
+                        System.out.println(readXML.xmlRead(playMineral, playSpecification, playAttribute));
+                        turnComplete = true;
+                        playerThreeCards.remove("[" + playMineral + "]");
                     }
-                    System.out.println("Select the value of " + playSpecification);
-                    playAttribute = playCardInput.nextLine();
-                    cardSelector readXML = new cardSelector();
-                    System.out.println(readXML.xmlRead(playMineral, playSpecification, playAttribute));
-                    turnComplete = true;
-                    playerThreeCards.remove("["+playMineral+"]");
                     if (playerThreeCards.size() <= 0){
                         winnerDeclared = true;
-                        System.out.println("Congratulations to Player " + playerTurn + " you are the winner!!!.");
+                        System.out.println("Congratulations to Player " + playerTurn + 1 + " you are the winner!!!.");
                     }
+                    else if (playerFivePass && playerFourPass && playerOnePass && playerTwoPass){
+                        playerTurn = 2;
+                        specificationCategory = "";
+                        playerOnePass = false;
+                        playerTwoPass = false;
+                        playerThreePass = false;
+                        playerFourPass = false;
+                        playerFivePass = false;
+                    }
+
                     else if (TOTALPLAYERS > 3){
                         playerTurn++;
                     }
@@ -355,59 +412,76 @@ public class Main {
                         playerTurn = 0;
                     }
                 }
+                //                Player four Turn start.
+
                 else if (playerTurn == 3) {
-                    System.out.println("Currently Player" + playerTurn + " 's turn." +
-                            "\nSelect a mineral card from your hand." +"\nPlay a card by typing its name below.");
-                    while (!isCardInHand) {
+                    System.out.println("Currently Player " + (playerTurn + 1) + "'s turn." +
+                            "\nSelect a mineral card from your hand." +"\nPlay a card by typing its name below or pass"
+                            +
+                            " by typing in 'pass'.");
+                    while (!isCardInHand && !playerFourPass) {
                         playMineral = playCardInput.nextLine();
                         for (String cardsInPlay : playerFourCards) {
                             if (cardsInPlay.replace("[", "").replace("]", "").equalsIgnoreCase(playMineral)) {
                                 isCardInHand = true;
                             }
                         }
-                        if (!isCardInHand) {
+                        if (playMineral.equalsIgnoreCase("pass")){
+                            playerFourPass = true;
+                        }
+                        else if (!isCardInHand) {
                             System.out.println("Please select a mineral card from one of the following cards : "
                                     + playerFourCards);
                         }
 
-                    }
 
-                    System.out.println("Select the category you would like to play for card : " + playMineral);
-                    while (!isCardSpecificationAllowed){
-                        playSpecification = playCardInput.nextLine();
-                        if (specificationCategory.equalsIgnoreCase("")) {
-                            if (playSpecification.equalsIgnoreCase("hardness")
-                                    || playSpecification.equalsIgnoreCase("gravity")
-                                    || playSpecification.equalsIgnoreCase("cleavage")
-                                    || playSpecification.equalsIgnoreCase("abundance")
-                                    || playSpecification.equalsIgnoreCase("value")) {
-                                isCardSpecificationAllowed = true;
-                                System.out.println("Specification category is now set as : " + playSpecification);
-                                specificationCategory = playSpecification;
-                            }
-                            else {
-                                System.out.println("Incorrect specification. If no specification has been set, " +
-                                        "you must play hardness, gravity, value, abundance or cleavage.");
-                            }
-                        }
-                        else if (playSpecification.equalsIgnoreCase(specificationCategory)){
-                            isCardSpecificationAllowed = true;
-                        }
-                        else {
-                            System.out.println( "The current specification category is " + specificationCategory +
-                                    "Please play a specification from the current category only.");
-                        }
                     }
-                    System.out.println("Select the value of " + playSpecification);
-                    playAttribute = playCardInput.nextLine();
-                    cardSelector readXML = new cardSelector();
-                    System.out.println(readXML.xmlRead(playMineral, playSpecification, playAttribute));
-                    turnComplete = true;
-                    playerFourCards.remove("["+playMineral+"]");
+                    if (!playerFourPass) {
+                        System.out.println("Select the category you would like to play for card : " + playMineral);
+                        while (!isCardSpecificationAllowed) {
+                            playSpecification = playCardInput.nextLine();
+                            if (specificationCategory.equalsIgnoreCase("")) {
+                                if (playSpecification.equalsIgnoreCase("hardness")
+                                        || playSpecification.equalsIgnoreCase("gravity")
+                                        || playSpecification.equalsIgnoreCase("cleavage")
+                                        || playSpecification.equalsIgnoreCase("abundance")
+                                        || playSpecification.equalsIgnoreCase("value")) {
+                                    isCardSpecificationAllowed = true;
+                                    System.out.println("Specification category is now set as : " + playSpecification);
+                                    specificationCategory = playSpecification;
+                                } else {
+                                    System.out.println("Incorrect specification. If no specification has been set, " +
+                                            "you must play hardness, gravity, value, abundance or cleavage.");
+                                }
+                            } else if (playSpecification.equalsIgnoreCase(specificationCategory)) {
+                                isCardSpecificationAllowed = true;
+                            } else {
+                                System.out.println("The current specification category is " + specificationCategory +
+                                        "Please play a specification from the current category only.");
+                            }
+                        }
+                        System.out.println("Select the value of " + playSpecification);
+                        playAttribute = playCardInput.nextLine();
+                        cardSelector readXML = new cardSelector();
+                        System.out.println(readXML.xmlRead(playMineral, playSpecification, playAttribute));
+                        turnComplete = true;
+                        playerFourCards.remove("[" + playMineral + "]");
+                    }
                     if (playerFourCards.size() <= 0){
                         winnerDeclared = true;
-                        System.out.println("Congratulations to Player " + playerTurn + " you are the winner!!!.");
+                        System.out.println("Congratulations to Player " + (playerTurn + 1) + " you are the winner!!!.");
                     }
+                    else if (playerFivePass && playerOnePass && playerThreePass && playerTwoPass){
+                        playerTurn = 3;
+                        specificationCategory = "";
+                        playerOnePass = false;
+                        playerTwoPass = false;
+                        playerThreePass = false;
+                        playerFourPass = false;
+                        playerFivePass = false;
+
+                    }
+
                     else if (TOTALPLAYERS > 4){
                         playerTurn++;
                     }
@@ -416,58 +490,76 @@ public class Main {
                     }
 
                 }
+                //                Player five Turn Start.
+
                 else if (playerTurn == 4) {
-                    System.out.println("Currently Player" + playerTurn + " 's turn." +
-                            "\nSelect a mineral card from your hand." +"\nPlay a card by typing its name below.");
-                    while (!isCardInHand) {
+                    System.out.println("Currently Player " + (playerTurn + 1) + "'s turn." +
+                            "\nSelect a mineral card from your hand." +"\nPlay a card by typing its name below or pass"
+                            +
+                            " by typing in 'pass'.");
+                    while (!isCardInHand && !playerFivePass) {
                         playMineral = playCardInput.nextLine();
                         for (String cardsInPlay : playerFourCards) {
                             if (cardsInPlay.replace("[", "").replace("]", "").equalsIgnoreCase(playMineral)) {
                                 isCardInHand = true;
                             }
                         }
-                        if (!isCardInHand) {
+                        if (playMineral.equalsIgnoreCase("pass")){
+                            playerFivePass = true;
+                        }
+                        else if (!isCardInHand) {
                             System.out.println("Please select a mineral card from one of the following cards : "
                                     + playerFourCards);
                         }
 
+
                     }
-                    System.out.println("Select the category you would like to play for card : " + playMineral);
-                    while (!isCardSpecificationAllowed){
-                        playSpecification = playCardInput.nextLine();
-                        if (specificationCategory.equalsIgnoreCase("")) {
-                            if (playSpecification.equalsIgnoreCase("hardness")
-                                    || playSpecification.equalsIgnoreCase("gravity")
-                                    || playSpecification.equalsIgnoreCase("cleavage")
-                                    || playSpecification.equalsIgnoreCase("abundance")
-                                    || playSpecification.equalsIgnoreCase("value")) {
+                    if (!playerFivePass) {
+                        System.out.println("Select the category you would like to play for card : " + playMineral);
+                        while (!isCardSpecificationAllowed) {
+                            playSpecification = playCardInput.nextLine();
+                            if (specificationCategory.equalsIgnoreCase("")) {
+                                if (playSpecification.equalsIgnoreCase("hardness")
+                                        || playSpecification.equalsIgnoreCase("gravity")
+                                        || playSpecification.equalsIgnoreCase("cleavage")
+                                        || playSpecification.equalsIgnoreCase("abundance")
+                                        || playSpecification.equalsIgnoreCase("value")) {
+                                    isCardSpecificationAllowed = true;
+                                    System.out.println("Specification category is now set as : " + playSpecification);
+                                    specificationCategory = playSpecification;
+                                } else {
+                                    System.out.println("Incorrect specification. If no specification has been set, " +
+                                            "you must play hardness, gravity, value, abundance or cleavage.");
+                                }
+                            } else if (playSpecification.equalsIgnoreCase(specificationCategory)) {
                                 isCardSpecificationAllowed = true;
-                                System.out.println("Specification category is now set as : " + playSpecification);
-                                specificationCategory = playSpecification;
-                            }
-                            else {
-                                System.out.println("Incorrect specification. If no specification has been set, " +
-                                        "you must play hardness, gravity, value, abundance or cleavage.");
+                            } else {
+                                System.out.println("The current specification category is " + specificationCategory +
+                                        "Please play a specification from the current category only.");
                             }
                         }
-                        else if (playSpecification.equalsIgnoreCase(specificationCategory)){
-                            isCardSpecificationAllowed = true;
-                        }
-                        else {
-                            System.out.println( "The current specification category is " + specificationCategory +
-                                    "Please play a specification from the current category only.");
-                        }
+                        System.out.println("Select the value of " + playSpecification);
+                        playAttribute = playCardInput.nextLine();
+                        cardSelector readXML = new cardSelector();
+                        System.out.println(readXML.xmlRead(playMineral, playSpecification, playAttribute));
+                        turnComplete = true;
+                        playerFourCards.remove("[" + playMineral + "]");
                     }
-                    System.out.println("Select the value of " + playSpecification);
-                    playAttribute = playCardInput.nextLine();
-                    cardSelector readXML = new cardSelector();
-                    System.out.println(readXML.xmlRead(playMineral, playSpecification, playAttribute));
-                    turnComplete = true;
-                    playerFourCards.remove("["+playMineral+"]");
                     if (playerFourCards.size() <= 0){
                         winnerDeclared = true;
-                        System.out.println("Congratulations to Player " + playerTurn + " you are the winner!!!.");
+                        System.out.println("Congratulations to Player " + (playerTurn + 1) + " you are the winner!!!.");
                     }
+                    else if (playerOnePass && playerFourPass && playerThreePass && playerTwoPass){
+                        playerTurn = 4;
+                        specificationCategory = "";
+                        playerOnePass = false;
+                        playerTwoPass = false;
+                        playerThreePass = false;
+                        playerFourPass = false;
+                        playerFivePass = false;
+
+                    }
+
                     else {
                         playerTurn = 0;
                     }
