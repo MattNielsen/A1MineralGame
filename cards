@@ -2,63 +2,63 @@
     <Quartz>
         <hardness>7</hardness>
         <gravity>2.65</gravity>
-        <cleavage>poor</cleavage>
+        <cleavage>poor/none</cleavage>
         <abundance>high</abundance>
         <value>moderate</value>
     </Quartz>
     <Plagioclase>
         <hardness>6.5</hardness>
         <gravity>2.8</gravity>
-        <cleavage>perfect</cleavage>
+        <cleavage>1 perfect/1 good</cleavage>
         <abundance>very high</abundance>
         <value>moderate</value>
     </Plagioclase>
     <Orthoclase>
         <hardness>6.5</hardness>
         <gravity>2.6</gravity>
-        <cleavage>perfect</cleavage>
+        <cleavage>1 perfect/1 good</cleavage>
         <abundance>high</abundance>
         <value>moderate</value>
     </Orthoclase>
     <Biotite>
         <hardness>3</hardness>
         <gravity>3.3</gravity>
-        <cleavage>perfect</cleavage>
+        <cleavage>1 perfect</cleavage>
         <abundance>moderate</abundance>
         <value>low</value>
     </Biotite>
     <Muscovite>
         <hardness>3</hardness>
         <gravity>2.9</gravity>
-        <cleavage>perfect</cleavage>
+        <cleavage>1 perfect</cleavage>
         <abundance>moderate</abundance>
         <value>moderate</value>
     </Muscovite>
     <Hornblende>
         <hardness>6</hardness>
         <gravity>3.5</gravity>
-        <cleavage>good</cleavage>
+        <cleavage>2 good</cleavage>
         <abundance>moderate</abundance>
         <value>trivial</value>
     </Hornblende>
     <Actinolite>
         <hardness>6</hardness>
         <gravity>3.5</gravity>
-        <cleavage>good</cleavage>
+        <cleavage>2 good</cleavage>
         <abundance>low</abundance>
         <value>low</value>
     </Actinolite>
     <Glaucophane>
         <hardness>6</hardness>
         <gravity>3.2</gravity>
-        <cleavage>good</cleavage>
+        <cleavage>2 good</cleavage>
         <abundance>low</abundance>
         <value>trivial</value>
     </Glaucophane>
     <Olivine>
         <hardness>7</hardness>
         <gravity>4.4</gravity>
-        <cleavage>poor</cleavage>
+        <cleavage>2 poor</cleavage>
         <abundance>high</abundance>
         <value>low</value>
     </Olivine>
@@ -72,268 +72,309 @@
     <Titanite>
         <hardness>5.5</hardness>
         <gravity>3.6</gravity>
-        <cleavage>good</cleavage>
+        <cleavage>3 good</cleavage>
         <abundance>low</abundance>
         <value>low</value>
     </Titanite>
     <Zircon>
         <hardness>7.5</hardness>
         <gravity>4.7</gravity>
-        <cleavage>poor</cleavage>
+        <cleavage>2 poor</cleavage>
         <abundance>trace</abundance>
         <value>moderate</value>
     </Zircon>
     <Augite>
         <hardness>6.5</hardness>
         <gravity>3.6</gravity>
-        <cleavage>good</cleavage>
+        <cleavage>2 good</cleavage>
         <abundance>high</abundance>
         <value>trivial</value>
     </Augite>
     <Orthopyroxene>
         <hardness>6</hardness>
         <gravity>3.9</gravity>
-        <cleavage>good</cleavage>
+        <cleavage>2 good</cleavage>
         <abundance>high</abundance>
         <value>trivial</value>
     </Orthopyroxene>
     <Chlorite>
         <hardness>3</hardness>
         <gravity>3.3</gravity>
-        <cleavage>perfect</cleavage>
+        <cleavage>1 perfect</cleavage>
         <abundance>moderate</abundance>
         <value>low</value>
     </Chlorite>
     <Antigorite>
         <hardness>4</hardness>
         <gravity>2.6</gravity>
-        <cleavage>perfect</cleavage>
+        <cleavage>1 perfect</cleavage>
         <abundance>low</abundance>
         <value>low</value>
     </Antigorite>
     <Talc>
         <hardness>1</hardness>
         <gravity>2.8</gravity>
-        <cleavage>perfect</cleavage>
+        <cleavage>1 perfect</cleavage>
         <abundance>low</abundance>
         <value>moderate</value>
     </Talc>
     <Kaolinite>
         <hardness>2.5</hardness>
         <gravity>2.7</gravity>
-        <cleavage>perfect</cleavage>
+        <cleavage>1 perfect</cleavage>
         <abundance>moderate</abundance>
         <value>high</value>
     </Kaolinite>
     <Andalusite>
         <hardness>7</hardness>
         <gravity>3.15</gravity>
-        <cleavage>good</cleavage>
+        <cleavage>2 good</cleavage>
         <abundance>low</abundance>
         <value>moderate</value>
     </Andalusite>
     <Kyanite>
         <hardness>7</hardness>
         <gravity>3.7</gravity>
-        <cleavage>perfect</cleavage>
+        <cleavage>1 perfect/1 good</cleavage>
         <abundance>trace</abundance>
         <value>moderate</value>
     </Kyanite>
     <Sillimanite>
         <hardness>7.5</hardness>
         <gravity>3.25</gravity>
-        <cleavage>perfect</cleavage>
+        <cleavage>1 perfect/1 good</cleavage>
         <abundance>low</abundance>
         <value>low</value>
     </Sillimanite>
     <Staurolite>
         <hardness>7</hardness>
         <gravity>3.8</gravity>
-        <cleavage>good</cleavage>
+        <cleavage>1 good</cleavage>
         <abundance>trace</abundance>
         <value>low</value>
     </Staurolite>
     <Epidote>
         <hardness>6.5</hardness>
         <gravity>3.5</gravity>
-        <cleavage>perfect</cleavage>
+        <cleavage>1 perfect</cleavage>
         <abundance>moderate</abundance>
         <value>trivial</value>
     </Epidote>
-    <quartz>
+    <Tourmaline>
+        <hardness>7.5</hardness>
+        <gravity>3.2</gravity>
+        <cleavage>2 poor</cleavage>
+        <abundance>trace</abundance>
+        <value>moderate</value>
+    </Tourmaline>
+    <Topaz>
+        <hardness>8</hardness>
+        <gravity>3.6</gravity>
+        <cleavage>1 perfect</cleavage>
+        <abundance>ultratrace</abundance>
+        <value>low</value>
+    </Topaz>
+    <Beryl>
+        <hardness>8</hardness>
+        <gravity>2.9</gravity>
+        <cleavage>1 poor</cleavage>
+        <abundance>trace</abundance>
+        <value>moderate</value>
+    </Beryl>
+    <Pyrite>
+        <hardness>6.5</hardness>
+        <gravity>5</gravity>
+        <cleavage>2 poor</cleavage>
+        <abundance>low</abundance>
+        <value>moderate</value>
+    </Pyrite>
+    <Pyrrhotite>
+        <hardness>4.5</hardness>
+        <gravity>4.6</gravity>
+        <cleavage>none</cleavage>
+        <abundance>low</abundance>
+        <value>moderate</value>
+    </Pyrrhotite>
+    <Chalcopyrite>
+        <hardness>4</hardness>
+        <gravity>4.3</gravity>
+        <cleavage>2 poor</cleavage>
+        <abundance>low</abundance>
+        <value>very high</value>
+    </Chalcopyrite>
+    <Galena>
+        <hardness>2.5</hardness>
+        <gravity>7.6</gravity>
+        <cleavage>3 perfect</cleavage>
+        <abundance>trace</abundance>
+        <value>high</value>
+    </Galena>
+    <Sphalerite>
+        <hardness>4</hardness>
+        <gravity>4.1</gravity>
+        <cleavage>6 perfect</cleavage>
+        <abundance>trace</abundance>
+        <value>high</value>
+    </Sphalerite>
+    <Molybdenite>
+        <hardness>1.5</hardness>
+        <gravity>4.7</gravity>
+        <cleavage>1 perfect</cleavage>
+        <abundance>trace</abundance>
+        <value>high</value>
+    </Molybdenite>
+    <Gold>
+        <hardness>3</hardness>
+        <gravity>19.3</gravity>
+        <cleavage>none</cleavage>
+        <abundance>ultratrace</abundance>
+        <value>im rich</value>
+    </Gold>
+    <Diamond>
+        <hardness>10</hardness>
+        <gravity>3.5</gravity>
+        <cleavage>4 perfect</cleavage>
+        <abundance>ultratrace</abundance>
+        <value>im rich</value>
+    </Diamond>
+    <Graphite>
+        <hardness>2</hardness>
+        <gravity>2.2</gravity>
+        <cleavage>1 perfect</cleavage>
+        <abundance>trace</abundance>
+        <value>moderate</value>
+    </Graphite>
+    <Halite>
+        <hardness>2.5</hardness>
+        <gravity>2.2</gravity>
+        <cleavage>3 perfect</cleavage>
+        <abundance>trace</abundance>
+        <value>moderate</value>
+    </Halite>
+    <Fluorite>
+        <hardness>4</hardness>
+        <gravity>3.2</gravity>
+        <cleavage>4 perfect</cleavage>
+        <abundance>trace</abundance>
+        <value>moderate</value>
+    </Fluorite>
+    <Gypsum>
+        <hardness>2</hardness>
+        <gravity>2.3</gravity>
+        <cleavage>1 perfect/2 good</cleavage>
+        <abundance>trace</abundance>
+        <value>high</value>
+    </Gypsum>
+    <Barite>
+        <hardness>3.5</hardness>
+        <gravity>4.5</gravity>
+        <cleavage>2 perfect/1 good</cleavage>
+        <abundance>trace</abundance>
+        <value>moderate</value>
+    </Barite>
+    <Apatite>
+        <hardness>5</hardness>
+        <gravity>3.2</gravity>
+        <cleavage>2 poor</cleavage>
+        <abundance>low</abundance>
+        <value>high</value>
+    </Apatite>
+    <Monazite>
+        <hardness>5</hardness>
+        <gravity>5.3</gravity>
+        <cleavage>1 good/ 1poor</cleavage>
+        <abundance>trace</abundance>
+        <value>moderate</value>
+    </Monazite>
+    <Calcite>
+        <hardness>3</hardness>
+        <gravity>2.7</gravity>
+        <cleavage>3 perfect</cleavage>
+        <abundance>moderate</abundance>
+        <value>high</value>
+    </Calcite>
+    <Dolomite>
+        <hardness>4</hardness>
+        <gravity>2.9</gravity>
+        <cleavage>3 perfect</cleavage>
+        <abundance>low</abundance>
+        <value>low</value>
+    </Dolomite>
+    <Magnesite>
+        <hardness>4</hardness>
+        <gravity>3</gravity>
+        <cleavage>3 perfect</cleavage>
+        <abundance>low</abundance>
+        <value>moderate</value>
+    </Magnesite>
+    <Siderite>
+        <hardness>4.5</hardness>
+        <gravity>4</gravity>
+        <cleavage>3 perfect</cleavage>
+        <abundance>trace</abundance>
+        <value>moderate</value>
+    </Siderite>
+    <Magnetite>
+        <hardness>6</hardness>
+        <gravity>5.2</gravity>
+        <cleavage>none</cleavage>
+        <abundance>moderate</abundance>
+        <value>very high</value>
+    </Magnetite>
+    <Hematite>
+        <hardness>6</hardness>
+        <gravity>5.3</gravity>
+        <cleavage>none</cleavage>
+        <abundance>trace</abundance>
+        <value>high</value>
+    </Hematite>
+    <Chromite>
+        <hardness>5.5</hardness>
+        <gravity>5.1</gravity>
+        <cleavage>none</cleavage>
+        <abundance>low</abundance>
+        <value>high</value>
+    </Chromite>
+    <Ilmenite>
+        <hardness>6</hardness>
+        <gravity>4.8</gravity>
+        <cleavage>none</cleavage>
+        <abundance>low</abundance>
+        <value>moderate</value>
+    </Ilmenite>
+    <Rutile>
+        <hardness>6.5</hardness>
+        <gravity>4.3</gravity>
+        <cleavage>2 good</cleavage>
+        <abundance>low</abundance>
+        <value>high</value>
+    </Rutile>
+    <Corundum>
+        <hardness>9</hardness>
+        <gravity>4</gravity>
+        <cleavage>none</cleavage>
+        <abundance>trace</abundance>
+        <value>moderate</value>
+    </Corundum>
+    <Cassiterite>
         <hardness>7</hardness>
-        <gravity>2.65</gravity>
-        <cleavage>poor</cleavage>
-        <abundance>high</abundance>
+        <gravity>7.1</gravity>
+        <cleavage>1 good/1 poor</cleavage>
+        <abundance>trace</abundance>
+        <value>high</value>
+    </Cassiterite>
+    <Gibbsite>
+        <hardness>3.5</hardness>
+        <gravity>2.4</gravity>
+        <cleavage>1 perfect</cleavage>
+        <abundance>low</abundance>
+        <value>high</value>
+    </Gibbsite>
+    <Goethite>
+        <hardness>5.5</hardness>
+        <gravity>4.3</gravity>
+        <cleavage>1 perfect/ 1 good</cleavage>
+        <abundance>moderate</abundance>
         <value>moderate</value>
-    </quartz>
-    <quartz>
-        <hardness>7</hardness>
-        <gravity>2.65</gravity>
-        <cleavage>poor</cleavage>
-        <abundance>high</abundance>
-        <value>moderate</value>
-    </quartz>
-    <quartz>
-        <hardness>7</hardness>
-        <gravity>2.65</gravity>
-        <cleavage>poor</cleavage>
-        <abundance>high</abundance>
-        <value>moderate</value>
-    </quartz>
-    <quartz>
-        <hardness>7</hardness>
-        <gravity>2.65</gravity>
-        <cleavage>poor</cleavage>
-        <abundance>high</abundance>
-        <value>moderate</value>
-    </quartz>
-    <quartz>
-        <hardness>7</hardness>
-        <gravity>2.65</gravity>
-        <cleavage>poor</cleavage>
-        <abundance>high</abundance>
-        <value>moderate</value>
-    </quartz>
-    <quartz>
-        <hardness>7</hardness>
-        <gravity>2.65</gravity>
-        <cleavage>poor</cleavage>
-        <abundance>high</abundance>
-        <value>moderate</value>
-    </quartz>
-    <quartz>
-        <hardness>7</hardness>
-        <gravity>2.65</gravity>
-        <cleavage>poor</cleavage>
-        <abundance>high</abundance>
-        <value>moderate</value>
-    </quartz>
-    <quartz>
-        <hardness>7</hardness>
-        <gravity>2.65</gravity>
-        <cleavage>poor</cleavage>
-        <abundance>high</abundance>
-        <value>moderate</value>
-    </quartz>
-    <quartz>
-        <hardness>7</hardness>
-        <gravity>2.65</gravity>
-        <cleavage>poor</cleavage>
-        <abundance>high</abundance>
-        <value>moderate</value>
-    </quartz>
-    <quartz>
-        <hardness>7</hardness>
-        <gravity>2.65</gravity>
-        <cleavage>poor</cleavage>
-        <abundance>high</abundance>
-        <value>moderate</value>
-    </quartz>
-    <quartz>
-        <hardness>7</hardness>
-        <gravity>2.65</gravity>
-        <cleavage>poor</cleavage>
-        <abundance>high</abundance>
-        <value>moderate</value>
-    </quartz>
-    <quartz>
-        <hardness>7</hardness>
-        <gravity>2.65</gravity>
-        <cleavage>poor</cleavage>
-        <abundance>high</abundance>
-        <value>moderate</value>
-    </quartz>
-    <quartz>
-        <hardness>7</hardness>
-        <gravity>2.65</gravity>
-        <cleavage>poor</cleavage>
-        <abundance>high</abundance>
-        <value>moderate</value>
-    </quartz>
-    <quartz>
-        <hardness>7</hardness>
-        <gravity>2.65</gravity>
-        <cleavage>poor</cleavage>
-        <abundance>high</abundance>
-        <value>moderate</value>
-    </quartz>
-    <quartz>
-        <hardness>7</hardness>
-        <gravity>2.65</gravity>
-        <cleavage>poor</cleavage>
-        <abundance>high</abundance>
-        <value>moderate</value>
-    </quartz>
-    <quartz>
-        <hardness>7</hardness>
-        <gravity>2.65</gravity>
-        <cleavage>poor</cleavage>
-        <abundance>high</abundance>
-        <value>moderate</value>
-    </quartz>
-    <quartz>
-        <hardness>7</hardness>
-        <gravity>2.65</gravity>
-        <cleavage>poor</cleavage>
-        <abundance>high</abundance>
-        <value>moderate</value>
-    </quartz>
-    <quartz>
-        <hardness>7</hardness>
-        <gravity>2.65</gravity>
-        <cleavage>poor</cleavage>
-        <abundance>high</abundance>
-        <value>moderate</value>
-    </quartz>
-    <quartz>
-        <hardness>7</hardness>
-        <gravity>2.65</gravity>
-        <cleavage>poor</cleavage>
-        <abundance>high</abundance>
-        <value>moderate</value>
-    </quartz>
-    <quartz>
-        <hardness>7</hardness>
-        <gravity>2.65</gravity>
-        <cleavage>poor</cleavage>
-        <abundance>high</abundance>
-        <value>moderate</value>
-    </quartz>
-    <quartz>
-        <hardness>7</hardness>
-        <gravity>2.65</gravity>
-        <cleavage>poor</cleavage>
-        <abundance>high</abundance>
-        <value>moderate</value>
-    </quartz>
-    <quartz>
-        <hardness>7</hardness>
-        <gravity>2.65</gravity>
-        <cleavage>poor</cleavage>
-        <abundance>high</abundance>
-        <value>moderate</value>
-    </quartz>
-    <quartz>
-        <hardness>7</hardness>
-        <gravity>2.65</gravity>
-        <cleavage>poor</cleavage>
-        <abundance>high</abundance>
-        <value>moderate</value>
-    </quartz>
-    <oi>
-        <hardness>7</hardness>
-        <gravity>2.65</gravity>
-        <cleavage>poor</cleavage>
-        <abundance>high</abundance>
-        <value>moderate</value>
-    </oi>
-
-    <moonrocks>
-        <hardness>1</hardness>
-        <gravity>2.65</gravity>
-        <cleavage>poor</cleavage>
-        <abundance>high</abundance>
-        <value>moderate</value>
-    </moonrocks>
+    </Goethite>
 </cards>

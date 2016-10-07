@@ -47,7 +47,6 @@ public class cardSelector {
                         StartElement startElement = event.asStartElement();
                         String qName = startElement.getName().getLocalPart();
                         if (qName.equalsIgnoreCase(mineralType)) {
-                            System.out.println("Start Element : " + mineralType );
                             Iterator<Attribute> attributes = startElement.getAttributes();
                             mineralCategory = true;
 //                            String rollNo = attributes.next().getValue();
@@ -61,8 +60,6 @@ public class cardSelector {
                     case XMLStreamConstants.CHARACTERS:
                         Characters characters = event.asCharacters();
                         if(specificationCategory){
-                            System.out.println(mineralSpecification +
-                                    " for " + mineralType + " is >>> " + characters.getData());
                             specificationValue = characters.getData();
                             mineralCategory = false;
                             specificationCategory = false;
@@ -71,10 +68,6 @@ public class cardSelector {
                         break;
                     case  XMLStreamConstants.END_ELEMENT:
                         EndElement endElement = event.asEndElement();
-                        if(endElement.getName().getLocalPart().equalsIgnoreCase(mineralType)){
-                            System.out.println("End Element : " + mineralType);
-                            System.out.println();
-                        }
                         break;
                 }
             }
